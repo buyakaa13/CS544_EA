@@ -10,15 +10,15 @@
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="buyakaa123"/>
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.show-sql" value="true" />
+            <property name="jakarta.persistence.format-sql" value="true" />
+            <property name="eclipseLink.logging.level.sql" value="ALL"/>
         </properties>
 <!--        <class>Lab1.User</class>-->
 <!--        <class>Lab1.Car</class>-->
         <class>Lab2.Prob1.Student</class>
         <class>Lab2.Prob1.Course</class>
-        <class>Lab2.Prob1.Room</class>
         <class>Lab2.Prob2.Car</class>
-        <class>Lab2.Prob2.Driver</class>
-        <class>Lab2.Prob2.Owner</class>
         <class>Lab2.Prob2.Person</class>
     </persistence-unit>
 </persistence>

@@ -10,18 +10,26 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Lab_Unit");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
+
+        Person owner = new Person("Lucy", 23);
+        Person driver = new Person("John", 35);
         Car car = new Car("Lexus-570", "metal", 2023, 100);
-        Owner owner = new Owner("Lucy", 23);
-        owner.setCar(car);
-        Driver driver = new Driver("John", 35, 12);
-        car.setOwner(owner);
         car.setDriver(driver);
+        car.setOwner(owner);
+        owner.setOwnerCar(car);
+
+        em.persist(owner);
+        em.persist(driver);
         em.persist(car);
+
         em.getTransaction().commit();
         em.close();
         emf.close();
-        System.out.println(car);
-        System.out.println("Owner car info: \n" + owner.getCar());
+        System.out.println("Car: \n" + car);
         System.out.println("Program finished ...");
     }
 }
+
+
+
+

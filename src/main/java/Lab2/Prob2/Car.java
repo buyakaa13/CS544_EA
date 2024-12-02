@@ -11,10 +11,26 @@ public class Car {
     private String propertyMake;
     private int year;
     private int mileage;
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Driver driver;
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Owner owner;
+
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
+    private Person driver;
+
+    @OneToOne
+    @JoinColumn(name = "owner_id")
+    private Person owner;
+
+    public void setDriver(Person driver) {
+        this.driver = driver;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    public String getPropertyModel() {
+        return propertyModel;
+    }
 
     public Car(String propertyModel, String propertyMake, int year, int mileage) {
         this.propertyModel = propertyModel;
@@ -22,15 +38,8 @@ public class Car {
         this.year = year;
         this.mileage = mileage;
     }
+
     protected Car() {}
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
 
     @Override
     public String toString() {
@@ -39,7 +48,7 @@ public class Car {
                 + "Year: " + year + "\n"
                 + "MileAge: " + mileage + "\n"
                 + "Owner: " + owner + "\n"
-                + "Driver: " + driver
+                + "Driver: " + driver + "\n"
                 + "--------------------------";
     }
 }

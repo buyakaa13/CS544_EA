@@ -6,7 +6,8 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Car {
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     private String propertyModel;
     private String propertyMake;
@@ -19,6 +20,10 @@ public class Car {
         this.mileage = mileage;
     }
     protected Car() {}
+
+    public int getId() {
+        return id;
+    }
 
     @Override
     public String toString() {

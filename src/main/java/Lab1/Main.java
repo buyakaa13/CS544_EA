@@ -24,6 +24,15 @@ public class Main {
         System.out.println("Car2: " + car2);
         em.persist(car1);
         em.persist(car2);
+
+        User findUser = em.find(User.class, user1.getId());
+        System.out.println("findUser: " + findUser);
+        findUser.setUsername("setFirstUser");
+        em.merge(findUser);
+
+        Car findCar = em.find(Car.class, car1.getId());
+        System.out.println("Remove car: " + findCar);
+        em.remove(findCar);
         transaction.commit();
         em.close();
         factory.close();

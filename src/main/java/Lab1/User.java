@@ -6,7 +6,8 @@ import jakarta.persistence.Id;
 
 @Entity
 public class User {
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
      private String name;
      private String username;
@@ -19,6 +20,10 @@ public class User {
      }
 
     protected User() {}
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
          return name;
@@ -38,7 +43,7 @@ public class User {
     public String toString() {
         return "Username: " + username + "\n"
                 + "Name: " + name + "\n"
-                + "Pass: " + password
+                + "Pass: " + password + "\n"
                 + "--------------------------";
     }
 }
